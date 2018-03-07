@@ -23,21 +23,27 @@ type Block struct {
 
 // InitBlockchain creates our first Genesis node.
 func InitBlockchain() {
-	Blockchain = []Block{
-		Block{
-			"Genesis Block",
-			time.Now().Unix(),
-			[]byte{},
-			[]byte{},
-		},
+	bc := Block{
+		"Genesis Block",
+		time.Now().Unix(),
+		[]byte{},
+		[]byte{},
 	}
+	bc.Hash = bc.calculateHash()
+	Blockchain = []Block{bc}
 	spew.Dump(Blockchain)
 }
 
 // NewBlock creates a new Blockchain Block.
 func NewBlock(oldBlock Block, data string) Block {
-	fmt.Println("******TODO: IMPLEMENT NewBlock!******")
-	return Block{}
+	bc := Block{
+		data,
+		time.Now().Unix(),
+		oldBlock.Hash,
+		[]byte{},
+	}
+	bc.Hash = bc.calculateHash()
+	return bc
 }
 
 // AddBlock adds a new block to the Blockchain.
