@@ -5,6 +5,7 @@ import (
 	"crypto/sha256"
 	"fmt"
 	"strconv"
+	"time"
 
 	"github.com/davecgh/go-spew/spew"
 )
@@ -22,9 +23,15 @@ type Block struct {
 
 // InitBlockchain creates our first Genesis node.
 func InitBlockchain() {
-	fmt.Println("******TODO: IMPLEMENT InitBlockchain!******")
+	Blockchain = []Block{
+		Block{
+			"Genesis Block",
+			time.Now().Unix(),
+			[]byte{},
+			[]byte{},
+		},
+	}
 	spew.Dump(Blockchain)
-	// Fill me in, noble warrior.
 }
 
 // NewBlock creates a new Blockchain Block.
