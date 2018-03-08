@@ -3,7 +3,6 @@ package main
 import (
 	"bytes"
 	"crypto/sha256"
-	"fmt"
 	"strconv"
 	"time"
 
@@ -48,8 +47,13 @@ func NewBlock(oldBlock Block, data string) Block {
 
 // AddBlock adds a new block to the Blockchain.
 func AddBlock(b Block) error {
-	fmt.Println("******TODO: IMPLEMENT AddBlock!******")
-	spew.Dump(Blockchain)
+	l := len(Blockchain)
+
+	lb := Blockchain[l-1]
+
+	if b.PrevHash != lb.Hash {
+		return
+	}
 	// Fill me in, brave wizard.
 	return nil
 }
