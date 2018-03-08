@@ -1,0 +1,9 @@
+language: go
+
+go:
+  - "1.8"
+  - master
+
+scripts:
+  - make install.deps
+  - make test
