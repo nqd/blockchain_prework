@@ -1,6 +1,4 @@
-TEST ?= go test
 GO ?= go
-GET ?= go get
 
 .PHONY: test
 
@@ -10,4 +8,4 @@ install.deps:
 
 # Test
 test:
-	$(TEST) -v ./...
+	$(GO) test -v ./...
