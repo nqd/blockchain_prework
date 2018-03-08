@@ -6,7 +6,7 @@ GET ?= go get
 
 # Install the development dependencies.
 install.deps:
-	@$(GET) github.com/davecgh/go-spew/spew
+	@$(GO) get github.com/davecgh/go-spew/spew
 
 # Test
 test:
