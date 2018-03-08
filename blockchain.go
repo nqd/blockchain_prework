@@ -3,6 +3,8 @@ package main
 import (
 	"bytes"
 	"crypto/sha256"
+	"errors"
+	"reflect"
 	"strconv"
 	"time"
 
@@ -51,10 +53,11 @@ func AddBlock(b Block) error {
 
 	lb := Blockchain[l-1]
 
-	if b.PrevHash != lb.Hash {
-		return
+	if !reflect.DeepEqual(b.PrevHash, lb.Hash) {
+		return errors.New("invalid block")
 	}
-	// Fill me in, brave wizard.
+
+	Blockchain = append(Blockchain, b)
 	return nil
 }
 
