@@ -1,6 +1,7 @@
 GO ?= go
 
-.PHONY: test
+.PHONY: test install.deps
+.DEFAULT_GOAL := test
 
 # Install the development dependencies.
 install.deps:
