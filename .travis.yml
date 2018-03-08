@@ -6,5 +6,5 @@ go:
 before_script:
   - make install.deps
 
-scripts:
+script:
   - make test
